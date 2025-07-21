@@ -1,16 +1,15 @@
 "use client";
 
-import {dark} from "@clerk/themes";
 import {UserButton} from "@clerk/nextjs";
-
-import {useCurrentTheme} from "@/hooks/use-current-theme";
+import { dark } from "@clerk/themes";
+import { useTheme } from "next-themes";
 
 interface Props {
   showName?: boolean;
 };
 
 export const UserControl = ({showName}: Props) => {
-  const currentTheme = useCurrentTheme();
+  const currentTheme = useTheme().theme || "light"
 
   return (
     <UserButton
