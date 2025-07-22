@@ -6,6 +6,7 @@ import {Toaster} from "sonner";
 import {ThemeProvider} from "@/components/theme-provider";
 import {Metadata} from "next";
 import {Analytics} from '@vercel/analytics/next';
+import {SpeedInsights} from '@vercel/speed-insights/next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         <Toaster/>
         {children}
         <Analytics/>
+        <SpeedInsights/>
       </ThemeProvider>
       </body>
       </html>
