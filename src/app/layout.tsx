@@ -4,8 +4,8 @@ import {Navbar} from "@/components/navbar";
 import {ClerkProvider} from "@clerk/nextjs";
 import {Toaster} from "sonner";
 import {ThemeProvider} from "@/components/theme-provider";
-import {useTheme} from "next-themes";
-import { Metadata } from "next";
+import {Metadata} from "next";
+import {Analytics} from '@vercel/analytics/next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +39,7 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         <Navbar/>
         <Toaster/>
         {children}
+        <Analytics/>
       </ThemeProvider>
       </body>
       </html>
