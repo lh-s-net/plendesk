@@ -1,6 +1,5 @@
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
-import {Navbar} from "@/components/navbar";
 import {ClerkProvider} from "@clerk/nextjs";
 import {Toaster} from "sonner";
 import {ThemeProvider} from "@/components/theme-provider";
@@ -39,8 +38,6 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
             enableSystem
             disableTransitionOnChange
           >
-
-            <Navbar/>
             <Toaster/>
             <MainLayout>
               {children}
