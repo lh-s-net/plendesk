@@ -7,6 +7,8 @@ import {ThemeProvider} from "@/components/theme-provider";
 import {Metadata} from "next";
 import {Analytics} from '@vercel/analytics/next';
 import {SpeedInsights} from '@vercel/speed-insights/next';
+import {cn} from "@/lib/utils";
+import MainLayout from "@/components/main-layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,22 +30,25 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system" // dark ord system
-        enableSystem
-        disableTransitionOnChange
-      >
-        <Navbar/>
-        <Toaster/>
-        {children}
-        <Analytics/>
-        <SpeedInsights/>
-      </ThemeProvider>
-      </body>
+        <head/>
+        <body
+          className={cn("min-h-screen bg-gray-100 font-sans antialiased dark:bg-neutral-900", geistSans.variable, geistMono.variable)}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system" // dark ord system
+            enableSystem
+            disableTransitionOnChange
+          >
+
+            <Navbar/>
+            <Toaster/>
+            <MainLayout>
+              {children}
+            </MainLayout>
+            <Analytics/>
+            <SpeedInsights/>
+          </ThemeProvider>
+        </body>
       </html>
     </ClerkProvider>
   );
