@@ -7,6 +7,8 @@ import UserAccountNav from "@/components/user-account-nav";
 import {DesktopNav} from '@/components/desktop-nav';
 import {MobileNav} from "@/components/mobile-nav";
 import {ThemeModeToggle} from "@/components/theme-mode-toggle";
+import {SignedOut, SignInButton, SignUpButton} from '@clerk/nextjs';
+import {Button} from '@/components/ui/button';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -25,6 +27,14 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2">
           <ThemeModeToggle/>
+          <SignedOut>
+            <Button variant="outline">
+              <SignInButton/>
+            </Button>
+            <Button>
+              <SignUpButton/>
+            </Button>
+          </SignedOut>
           <UserAccountNav/>
           <MobileNav/>
         </div>
