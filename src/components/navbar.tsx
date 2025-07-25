@@ -28,10 +28,10 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeModeToggle/>
           <SignedOut>
-            <Button variant="outline">
+            <Button variant="outline" asChild>
               <SignInButton/>
             </Button>
-            <Button>
+            <Button asChild>
               <SignUpButton/>
             </Button>
           </SignedOut>

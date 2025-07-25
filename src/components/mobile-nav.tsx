@@ -1,11 +1,11 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 import {Button} from "@/components/ui/button"
-import {Sheet, SheetClose, SheetContent, SheetTrigger} from "@/components/ui/sheet"
-import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible"
+import {Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger} from "@/components/ui/sheet"
 import {ChevronRight, MenuIcon} from "lucide-react"
+import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible"
+import Link from "next/link"
 
 const dashboardItems = [
   {title: "App1", href: "/dashboard/app1"},
@@ -31,8 +31,10 @@ export function MobileNav() {
           </Button>
         </SheetTrigger>
         <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+          <SheetTitle/>
           <div className="p-4">
             <nav className="flex flex-col space-y-2">
+
               {/* Dashboard Section */}
               <Collapsible>
                 <CollapsibleTrigger
@@ -62,7 +64,7 @@ export function MobileNav() {
                 </CollapsibleContent>
               </Collapsible>
 
-              {/* App1 Section */}
+              {/*App1 Section */}
               <Collapsible>
                 <CollapsibleTrigger
                   className="flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground [&[data-state=open]>svg]:rotate-90">
