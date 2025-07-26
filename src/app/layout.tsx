@@ -22,6 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PlenDesk.com | Your Online Support Community",
   description: "PlenDesk.com is your online support community. We help you with everything from tech support to business support. We are here to help you with everything.",
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
