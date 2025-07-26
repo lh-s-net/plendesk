@@ -22,6 +22,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "PlenDesk.com | Your Online Support Community",
   description: "PlenDesk.com is your online support community. We help you with everything from tech support to business support. We are here to help you with everything.",
+  themeColor: '#000000',
 };
 
 export default function RootLayout({children,}: Readonly<{ children: React.ReactNode; }>) {
@@ -29,7 +30,11 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
   return (
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
-        <head/>
+        <head>
+          <link rel="manifest" href="/manifest.json"/>
+          <link rel="icon" href="/icons/icon-192x192.png"/>
+          <meta name="theme-color" content="#ffffff"/>
+        </head>
         <body
           className={cn("min-h-screen bg-gray-100 font-sans antialiased dark:bg-neutral-900", geistSans.variable, geistMono.variable)}>
           <ThemeProvider
