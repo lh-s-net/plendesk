@@ -1,16 +1,15 @@
 "use client"
 
-import {Globe} from 'lucide-react';
 import Link from 'next/link';
 import React from 'react';
-import UserAccountNav from "@/components/user-account-nav";
-import {DesktopNav} from '@/components/desktop-nav';
-import {MobileNav} from "@/components/mobile-nav";
-import {ThemeModeToggle} from "@/components/theme-mode-toggle";
+import {NavDesktop} from '@/app/components/layout-main/nav-desktop';
+import {NavMobile} from "@/app/components/layout-main/nav-mobile";
 import {SignedOut, SignInButton, SignUpButton} from '@clerk/nextjs';
 import {Button} from '@/components/ui/button';
+import Image from "next/image";
+import MenuUserButton from '@/app/components/layout-main/menu-user-button';
 
-export default function Navbar() {
+export default function NavMain() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   return (
@@ -18,15 +17,14 @@ export default function Navbar() {
       className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between max-w-7xl px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2 font-semibold">
-          <Globe className="h-6 w-6"/>
-          <span className="hidden sm:inline-block">MyApp</span>
+          <Image src="/icons/96.png" alt="PlenDesk Logo" width={32} height={32}/>
+          <span className="hidden sm:inline-block">PlenDesk</span>
         </Link>
 
-        {/* Navigation */}
-        <DesktopNav/>
+        {/* Navigation Dektop */}
+        <NavDesktop/>
 
         <div className="flex items-center gap-2">
-          <ThemeModeToggle/>
           <SignedOut>
             <Button variant="outline" asChild>
               <SignInButton/>
@@ -35,9 +33,12 @@ export default function Navbar() {
               <SignUpButton/>
             </Button>
           </SignedOut>
-          <UserAccountNav/>
-          <MobileNav/>
+          <MenuUserButton/>
+
+          {/*Navigation Mobile*/}
+          <NavMobile/>
         </div>
+
       </div>
     </header>
   );

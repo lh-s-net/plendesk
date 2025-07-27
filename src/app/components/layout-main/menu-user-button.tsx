@@ -2,7 +2,7 @@ import {SignedIn, UserButton} from "@clerk/nextjs";
 import {dark} from "@clerk/themes";
 import {useTheme} from "next-themes";
 
-export default function UserAccountNav() {
+export default function MenuUserButton() {
   const currentTheme = useTheme().theme || "light"
 
   return (

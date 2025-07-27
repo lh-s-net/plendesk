@@ -2,12 +2,12 @@ import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 import {ClerkProvider} from "@clerk/nextjs";
 import {Toaster} from "sonner";
-import {ThemeProvider} from "@/components/theme-provider";
+import {ThemeProvider} from "@/app/components/layout-main/theme-provider";
 import {Metadata} from "next";
 import {Analytics} from '@vercel/analytics/next';
 import {SpeedInsights} from '@vercel/speed-insights/next';
 import {cn} from "@/lib/utils";
-import MainLayout from "@/components/main-layout";
+import MainLayout from "@/app/components/layout-main/main-layout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
