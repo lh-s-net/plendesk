@@ -1,20 +1,21 @@
-import type {NextConfig} from "next";
+const withPWA = require('next-pwa')({
+  dest: 'public',
+});
 
-// @ts-expect-error okErr
-import withPWA from "next-pwa";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-  compiler: {
-    // Entfernt `console`-Aufrufe in der Produktionsumgebung
-    removeConsole: process.env.NODE_ENV !== "development",
+module.exports = withPWA({
+  // other Next.js configurations
+    async rewrites() {
+    return [
+      // Rewrites für pd_app1
+      {
+        source: '/app1',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/app1`,
+      },
+      {
+        source: '/app1/:path*',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/app1/:path*`,
+      },
+    ];
   },
-};
 
-// Exportieren der erweiterten Konfiguration mit PWA
-export default withPWA({
-  dest: "public", // Zielordner für PWA-Dateien
-  disable: process.env.NODE_ENV === "development", // PWA im Entwicklungsmodus deaktivieren
-  register: true, // Automatische Registrierung des Service Workers
-  skipWaiting: true, // Überspringen von Wartezeiten beim Aktivieren des Service Workers
-})(nextConfig);
+});

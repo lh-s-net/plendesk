@@ -8,7 +8,7 @@ import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/
 import Link from "next/link"
 
 const dashboardItems = [
-  {title: "App1", href: "/dashboard/app1"},
+  {title: "App1", href: "/app1"},
   {title: "App2", href: "/dashboard/app2"},
   {title: "App3", href: "/dashboard/app3"},
 ]

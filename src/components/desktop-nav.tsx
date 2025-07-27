@@ -11,13 +11,13 @@ import Link from "next/link";
 import React from "react";
 
 const dashboardItems = [
-  {title: "App1", href: "/dashboard/app1", description: "App1 vom Dashboard"},
+  {title: "App1", href: "/app1", description: "App1"},
   {title: "App2", href: "/dashboard/app2", description: "App2 vom Dashboard"},
   {title: "App3", href: "/dashboard/app3", description: "App3 vom Dashboard"},
 ]
 
 const app1Items = [
-  {title: "Settings1", href: "/dashboard/app1/settings1", description: "Einstellungen 1 für App1"},
+  {title: "Settings1", href: "/app1/settings1", description: "Einstellungen 1 für App1"},
   {title: "Settings2", href: "/dashboard/app1/settings2", description: "Einstellungen 2 für App1"},
 ]
 
