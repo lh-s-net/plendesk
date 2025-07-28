@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import React from 'react';
-import {NavDesktop} from '@/app/components/layout-main/nav-desktop';
-import {NavMobile} from "@/app/components/layout-main/nav-mobile";
+import {NavMainDesktop} from '@/app/components/layout-main/nav-main-desktop';
+import {NavMainMobile} from "@/app/components/layout-main/nav-main-mobile";
 import {SignedOut, SignInButton, SignUpButton} from '@clerk/nextjs';
 import {Button} from '@/components/ui/button';
 import Image from "next/image";
@@ -22,7 +22,7 @@ export default function NavMain() {
         </Link>
 
         {/* Navigation Dektop */}
-        <NavDesktop/>
+        <NavMainDesktop/>
 
         <div className="flex items-center gap-2">
           <SignedOut>
@@ -36,7 +36,7 @@ export default function NavMain() {
           <MenuUserButton/>
 
           {/*Navigation Mobile*/}
-          <NavMobile/>
+          <NavMainMobile/>
         </div>
 
       </div>

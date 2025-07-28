@@ -7,6 +7,7 @@ import {ChevronRight, MenuIcon, Moon, Sun} from "lucide-react"
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "@/components/ui/collapsible"
 import Link from "next/link"
 import {useTheme} from "next-themes";
+import { NavAppMobile } from "@/app/components/layout-app/nav-app-mobile"
 
 const dashboardItems = [
   {title: "App1", href: "/app1"},
@@ -19,7 +20,7 @@ const app1Items = [
   {title: "Settings2", href: "/dashboard/app1/settings2"},
 ]
 
-export function NavMobile() {
+export function NavMainMobile() {
   const [isOpen, setIsOpen] = React.useState(false)
   const {setTheme} = useTheme()
 
@@ -89,38 +90,8 @@ export function NavMobile() {
                 </CollapsibleContent>
               </Collapsible>
 
-              {/* menu extras */}
-              <Collapsible>
-                <CollapsibleTrigger
-                  className="flex w-full items-center justify-between rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground [&[data-state=open]>svg]:rotate-90">
-                  Extras
-                  <ChevronRight className="h-4 w-4 transition-transform duration-200"/>
-                </CollapsibleTrigger>
-
-                <CollapsibleContent className="pl-4">
-
-                  {/* menu item help */}
-                  <SheetClose asChild>
-                    <Link
-                      href="/help"
-                      className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                    >
-                      Help
-                    </Link>
-                  </SheetClose>
-
-                  {/* menu item pricing */}
-                  <SheetClose asChild>
-                    <Link
-                      href="/pricing"
-                      className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                    >
-                      Pricing
-                    </Link>
-                  </SheetClose>
-
-                </CollapsibleContent>
-              </Collapsible>
+              {/* nav app mobile */}
+              <NavAppMobile/>
 
               {/* menu theme */}
               <Collapsible>
@@ -173,7 +144,6 @@ export function NavMobile() {
 
                 </CollapsibleContent>
               </Collapsible>
-
 
             </nav>
           </div>
