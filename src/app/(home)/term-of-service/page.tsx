@@ -1,4 +1,4 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
 export default function TermsOfServicePage() {
@@ -170,7 +170,7 @@ export default function TermsOfServicePage() {
             <CardContent>
               <div className="space-y-3 text-muted-foreground">
                 <p>
-                  Our services are provided "as is" without warranties of any kind. To the maximum extent permitted by Swiss law, 
+                  Our services are provided &quot;as is&quot; without warranties of any kind. To the maximum extent permitted by Swiss law,
                   PlenDesk disclaims all warranties, express or implied, including but not limited to warranties of merchantability, 
                   fitness for a particular purpose, and non-infringement.
                 </p>

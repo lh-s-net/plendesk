@@ -10,7 +10,6 @@ import Image from "next/image";
 import MenuUserButton from '@/app/components/layout-main/menu-user-button';
 
 export default function NavMain() {
-  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   return (
     <header

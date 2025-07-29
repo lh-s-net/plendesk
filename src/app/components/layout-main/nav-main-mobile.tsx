@@ -10,16 +10,6 @@ import Link from "next/link"
 import {useTheme} from "next-themes";
 import { NavAppMobile } from "@/app/components/layout-app/nav-app-mobile"
 
-const dashboardItems = [
-  {title: "App1", href: "/app1"},
-  {title: "App2", href: "/dashboard/app2"},
-  {title: "App3", href: "/dashboard/app3"},
-]
-
-const app1Items = [
-  {title: "Settings1", href: "/dashboard/app1/settings1"},
-  {title: "Settings2", href: "/dashboard/app1/settings2"},
-]
 
 export function NavMainMobile() {
   const [isOpen, setIsOpen] = React.useState(false)
