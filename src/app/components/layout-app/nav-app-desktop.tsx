@@ -44,6 +44,26 @@ export function NavAppDesktop() {
             </NavigationMenuLink>
           </li>
 
+          {/* Menu Item: Terms of Service */}
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="/term-of-service">
+                <div className="font-medium">Terms of Service</div>
+                <div className="text-muted-foreground">legal terms</div>
+              </Link>
+            </NavigationMenuLink>
+          </li>
+
+          {/* Menu Item: Privacy Policy */}
+          <li>
+            <NavigationMenuLink asChild>
+              <Link href="/privacy-policy">
+                <div className="font-medium">Privacy Policy</div>
+                <div className="text-muted-foreground">data protection</div>
+              </Link>
+            </NavigationMenuLink>
+          </li>
+
           {/* Menu Item: Theme Toggle */}
           <li>
             <div className="px-3 py-2">
