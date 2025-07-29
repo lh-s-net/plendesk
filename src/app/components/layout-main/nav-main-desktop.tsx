@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import {cn} from "@/lib/utils";
 import React from "react";
-import {useTheme} from "next-themes";
 import {NavAppDesktop} from "@/app/components/layout-app/nav-app-desktop";
 
 const dashboardItems = [
@@ -23,8 +22,6 @@ const app1Items = [
 ]
 
 export function NavMainDesktop() {
-  const {setTheme} = useTheme()
-
   return (
     <div className="hidden md:flex gap-x-2">
       <NavigationMenu viewport={false}>

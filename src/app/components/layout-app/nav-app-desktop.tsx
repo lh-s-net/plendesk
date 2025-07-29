@@ -4,13 +4,19 @@ import {
   NavigationMenuLink,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import Link from "next/link";
-import {Moon, Sun} from "lucide-react";
-import {useTheme} from "next-themes";
 import React from "react";
+import { useTheme } from "next-themes";
+import { Moon, Sun, Monitor } from "lucide-react";
 
 export function NavAppDesktop() {
-  const {setTheme} = useTheme();
+  const [mounted, setMounted] = React.useState(false)
+  const {theme, setTheme} = useTheme()
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <NavigationMenuItem>
@@ -38,50 +44,34 @@ export function NavAppDesktop() {
             </NavigationMenuLink>
           </li>
 
-          {/* Menu Item: Theme Submenu */}
+          {/* Menu Item: Theme Toggle */}
           <li>
             <div className="px-3 py-2">
-              <div className="flex items-center text-sm font-medium leading-none mb-2">
-                <Sun
-                  className="mr-2 h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"/>
-                <Moon
-                  className="mr-2 absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"/>
-                Theme
-              </div>
-
-              <div className="space-y-1">
-                {/* Submenu Item: Light */}
-                <NavigationMenuLink asChild>
-                  <button
-                    className="block w-full text-left"
-                    onClick={() => setTheme("light")}
-                  >
-                    Light
-                  </button>
-                </NavigationMenuLink>
-
-                {/* Submenu Item: Dark */}
-                <NavigationMenuLink asChild>
-                  <button
-                    className="block w-full text-left"
-                    onClick={() => setTheme("dark")}
-                  >
-                    Dark
-                  </button>
-                </NavigationMenuLink>
-
-                {/* Submenu Item: System */}
-                <NavigationMenuLink asChild>
-                  <button
-                    className="block w-full text-left"
-                    onClick={() => setTheme("system")}
-                  >
-                    System
-                  </button>
-                </NavigationMenuLink>
-              </div>
+              {mounted && (
+                <ToggleGroup
+                  type="single"
+                  value={theme}
+                  onValueChange={(value) => {
+                    if (value) setTheme(value);
+                  }}
+                  variant="outline"
+                  size="sm"
+                  className="w-full"
+                >
+                  <ToggleGroupItem value="light" className="flex-1">
+                    <Sun className="h-4 w-4" />
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="dark" className="flex-1">
+                    <Moon className="h-4 w-4" />
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="system" className="flex-1">
+                    <Monitor className="h-4 w-4" />
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              )}
             </div>
           </li>
+
         </ul>
       </NavigationMenuContent>
     </NavigationMenuItem>
