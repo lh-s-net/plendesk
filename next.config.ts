@@ -4,7 +4,7 @@ const withPWA = require('next-pwa')({
 
 module.exports = withPWA({
   // other Next.js configurations
-    async rewrites() {
+  async rewrites() {
     return [
       // Rewrites für pd_app1
       {
@@ -15,7 +15,15 @@ module.exports = withPWA({
         source: '/app1/:path*',
         destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/app1/:path*`,
       },
+      // Rewrites für pd_planner
+      {
+        source: '/planner',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/planner`,
+      },
+      {
+        source: '/planner/:path*',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/planner/:path*`,
+      },
     ];
   },
-
 });
