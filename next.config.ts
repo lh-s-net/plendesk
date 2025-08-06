@@ -18,11 +18,11 @@ module.exports = withPWA({
       // Rewrites für pd_planner
       {
         source: '/planner',
-        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/planner`,
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_PLANNER}/planner`,
       },
       {
         source: '/planner/:path*',
-        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/planner/:path*`,
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_PLANNER}/planner/:path*`,
       },
     ];
   },
