@@ -2,8 +2,6 @@ import {clerkMiddleware, createRouteMatcher} from '@clerk/nextjs/server';
 
 const isPublicRoute = createRouteMatcher([
   "/",
-  "https://www.plendesk.com/planner(.*)",
-  "https://pd-planner.plendesk.com/planner(.*)",
   "/sw.js",
   "/manifest.json",
   "/sign-in(.*)",
