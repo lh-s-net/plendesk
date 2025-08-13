@@ -10,14 +10,17 @@ const isPublicRoute = createRouteMatcher([
   "/term-of-service(.*)",
   "/privacy-policy(.*)",
   "/unauthorized-sign-in(.*)",
-  "/api(.*)", // for example api
+  "/api(.*)",
 ])
 
 export default clerkMiddleware(async (auth, req) => {
-  if (!isPublicRoute(req)) {
-    await auth.protect()
+  const { userId, redirectToSignIn } = await auth();
+
+  if (!userId && !isPublicRoute(req)) {
+    // → Sign-in der MAIN-App + exakter Rücksprung
+    return redirectToSignIn({ returnBackUrl: req.url });
   }
-})
+});
 
 export const config = {
   matcher: [
