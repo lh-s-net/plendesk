@@ -14,10 +14,10 @@ export default function Page() {
           </div>
         </a>
 
-        <Link href="/dashboard/app2">
+        <Link href="/planner">
           <div className="p-6 bg-muted rounded-lg">
-            <h2 className="text-xl font-semibold mb-2">App2</h2>
-            <p>Quick access to App2 functionality.</p>
+            <h2 className="text-xl font-semibold mb-2">PD Planner</h2>
+            <p>PD Planner for ToDo, Kanban, Lists and Calendar.</p>
           </div>
         </Link>
 
