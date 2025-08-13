@@ -12,7 +12,7 @@ import {NavAppDesktop} from "@/app/components/layout-app/nav-app-desktop";
 
 const dashboardItems = [
   {title: "App1", href: "/app1", description: "App1"},
-  {title: "App2", href: "/dashboard/app2", description: "App2 vom Dashboard"},
+  {title: "Planner", href: "/planner", description: "PD Planner (ToDo-Kanban-Lists-Calendar)"},
   {title: "App3", href: "/dashboard/app3", description: "App3 vom Dashboard"},
 ]
 
