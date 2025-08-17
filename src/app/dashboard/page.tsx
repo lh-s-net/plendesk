@@ -7,19 +7,19 @@ export default function Page() {
       <p className="mb-4">Welcome to the main dashboard. Use the navigation menu to access App1, App2, and App3.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-        <a href="/app1">
+        <a href="/calc">
           <div className="p-6 bg-muted rounded-lg">
-            <h2 className="text-xl font-semibold mb-2">App1</h2>
-            <p>Quick access to App1 functionality.</p>
+            <h2 className="text-xl font-semibold mb-2">Calc</h2>
+            <p>Your calculator</p>
           </div>
         </a>
 
-        <Link href="/planner">
+        <a href="/planner">
           <div className="p-6 bg-muted rounded-lg">
             <h2 className="text-xl font-semibold mb-2">PD Planner</h2>
             <p>PD Planner for ToDo, Kanban, Lists and Calendar.</p>
           </div>
-        </Link>
+        </a>
 
         <Link href="/dashboard/app3">
           <div className="p-6 bg-muted rounded-lg">

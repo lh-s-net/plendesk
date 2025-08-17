@@ -6,14 +6,14 @@ module.exports = withPWA({
   // other Next.js configurations
   async rewrites() {
     return [
-      // Rewrites für pd_app1
+      // Rewrites für pd_calc
       {
-        source: '/app1',
-        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/app1`,
+        source: '/calc',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_CALC}/calc`,
       },
       {
-        source: '/app1/:path*',
-        destination: `${process.env.NEXT_PUBLIC_URL_PD_APP1}/app1/:path*`,
+        source: '/calc/:path*',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_CALC}/calc/:path*`,
       },
       // Rewrites für pd_planner
       {
