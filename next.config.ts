@@ -24,6 +24,15 @@ module.exports = withPWA({
         source: '/planner/:path*',
         destination: `${process.env.NEXT_PUBLIC_URL_PD_PLANNER}/planner/:path*`,
       },
+      // Rewrites für pd_mypd
+      {
+        source: '/mypd',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_PLANNER}/mypd`,
+      },
+      {
+        source: '/mypd/:path*',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_PLANNER}/mypd/:path*`,
+      },
     ];
   },
 });

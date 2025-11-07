@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "convex:dev": "npx convex dev",
     "start": "next start",
     "lint": "next lint"
   },
