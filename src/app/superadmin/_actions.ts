@@ -1,7 +1,8 @@
 'use server'
 
 import {clerkClient} from '@clerk/nextjs/server'
-import { checkRole } from "../../../utils/roles"
+import { checkRole } from "./roles"
+import { Roles } from "./roles.type"
 
 export async function setRole(formData: FormData): Promise<void> {
   // Check that the user trying to set the role is a superadmin
@@ -47,7 +48,8 @@ export async function removeRole(formData: FormData): Promise<void> {
     const currentRoles = (user.publicMetadata.roles as string[]) || ['user']
     
     // Remove all special roles, keep only 'user' or default to ['user']
-    const updatedRoles = currentRoles.filter(role => !['superadmin', 'admin', 'member'].includes(role))
+    const validRoles: Roles[] = ['superadmin', 'member', 'pd_planner', 'pd_cal', 'pd_mypd']
+    const updatedRoles = currentRoles.filter(role => !validRoles.includes(role as Roles))
     const finalRoles = updatedRoles.length > 0 ? updatedRoles : ['user']
     
     await client.users.updateUserMetadata(userId, {
@@ -69,7 +71,8 @@ export async function toggleRole(formData: FormData): Promise<void> {
     const userId = formData.get('id') as string
     const roleToToggle = formData.get('role') as string
     
-    if (!['superadmin', 'admin', 'member'].includes(roleToToggle)) {
+    const validRoles: Roles[] = ['superadmin', 'member', 'pd_planner', 'pd_cal', 'pd_mypd']
+    if (!validRoles.includes(roleToToggle as Roles)) {
       throw new Error('Invalid role')
     }
     

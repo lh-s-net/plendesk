@@ -2,8 +2,8 @@
 
 import { useState, useTransition } from 'react'
 import { Badge } from "@/components/ui/badge"
-import { Crown, Shield, Users } from "lucide-react"
 import { toggleRole } from './_actions'
+import { roleConfigs } from "./roles.config"
 
 interface RoleBadgesProps {
   userId: string
@@ -48,62 +48,47 @@ export function RoleBadges({ userId, userRoles: initialRoles }: RoleBadgesProps)
 
   return (
     <div className="flex flex-wrap items-center gap-1">
-      {/* SuperAdmin Badge */}
-      <button 
-        onClick={() => handleRoleToggle('superadmin')}
-        disabled={isPending}
-        className="transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50"
-        title={userRoles.includes('superadmin') ? 'Remove SuperAdmin role' : 'Add SuperAdmin role'}
-      >
-        <Badge 
-          className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${
-            userRoles.includes('superadmin') 
-              ? 'bg-red-600 hover:bg-red-700 text-white border-red-600 shadow-md hover:shadow-lg' 
-              : 'bg-gray-100 hover:bg-gray-200 text-gray-400 border-gray-300 hover:text-gray-600 hover:border-gray-400'
-          }`}
-        >
-          <Crown className={`h-3 w-3 ${userRoles.includes('superadmin') ? 'text-white' : 'text-gray-400'}`} />
-          superadmin
-        </Badge>
-      </button>
-      
-      {/* Admin Badge */}
-      <button 
-        onClick={() => handleRoleToggle('admin')}
-        disabled={isPending}
-        className="transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50"
-        title={userRoles.includes('admin') ? 'Remove Admin role' : 'Add Admin role'}
-      >
-        <Badge 
-          className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${
-            userRoles.includes('admin') 
-              ? 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600 shadow-md hover:shadow-lg' 
-              : 'bg-gray-100 hover:bg-gray-200 text-gray-400 border-gray-300 hover:text-gray-600 hover:border-gray-400'
-          }`}
-        >
-          <Shield className={`h-3 w-3 ${userRoles.includes('admin') ? 'text-white' : 'text-gray-400'}`} />
-          admin
-        </Badge>
-      </button>
-      
-      {/* Member Badge */}
-      <button 
-        onClick={() => handleRoleToggle('member')}
-        disabled={isPending}
-        className="transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50"
-        title={userRoles.includes('member') ? 'Remove Member role' : 'Add Member role'}
-      >
-        <Badge 
-          className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${
-            userRoles.includes('member') 
-              ? 'bg-green-600 hover:bg-green-700 text-white border-green-600 shadow-md hover:shadow-lg' 
-              : 'bg-gray-100 hover:bg-gray-200 text-gray-400 border-gray-300 hover:text-gray-600 hover:border-gray-400'
-          }`}
-        >
-          <Users className={`h-3 w-3 ${userRoles.includes('member') ? 'text-white' : 'text-gray-400'}`} />
-          member
-        </Badge>
-      </button>
+      {roleConfigs.map((config) => {
+        const Icon = config.icon
+        const isActive = userRoles.includes(config.role)
+        const isEditable = config.isEditable !== false // Default to true if not specified
+        
+        // For non-editable roles (like superadmin), render badge without button wrapper
+        if (!isEditable) {
+          return (
+            <Badge 
+              key={config.role}
+              className={`flex items-center gap-1 cursor-default ${
+                isActive ? config.activeColor.replace(/hover:bg-\S+/g, '').replace(/hover:shadow-lg/g, '') : config.inactiveColor.replace(/hover:bg-\S+/g, '').replace(/hover:text-\S+/g, '').replace(/hover:border-\S+/g, '')
+              }`}
+              title={`${config.label} role (managed via Clerk Portal only)`}
+            >
+              <Icon className={`h-3 w-3 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+              {config.label}
+            </Badge>
+          )
+        }
+        
+        // For editable roles, render with button wrapper
+        return (
+          <button 
+            key={config.role}
+            onClick={() => handleRoleToggle(config.role)}
+            disabled={isPending}
+            className="transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50"
+            title={isActive ? `Remove ${config.label} role` : `Add ${config.label} role`}
+          >
+            <Badge 
+              className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${
+                isActive ? config.activeColor : config.inactiveColor
+              }`}
+            >
+              <Icon className={`h-3 w-3 ${isActive ? 'text-white' : 'text-gray-400'}`} />
+              {config.label}
+            </Badge>
+          </button>
+        )
+      })}
     </div>
   )
 }

@@ -3,15 +3,14 @@ import Link from 'next/link'
 import { UsersFilter } from './UsersFilter'
 import {clerkClient} from '@clerk/nextjs/server'
 import { Card } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Separator } from "@/components/ui/separator"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { ShieldCheck, Crown, Users, Home, Settings, ChevronUp, ChevronDown } from "lucide-react"
+import { ShieldCheck, Users, ChevronUp, ChevronDown } from "lucide-react"
 import { UsersPagination } from "./UsersPagination"
 import { RoleBadges } from "./RoleBadges"
 import { DeleteUserButton } from "./DeleteUserButton"
-import { checkRole } from "../../../utils/roles"
+import { checkRole } from "./roles"
 
 export default async function SuperAdminDashboard(params: {
   searchParams: Promise<{ search?: string; page?: string; sort?: string; order?: string; pageSize?: string }>
