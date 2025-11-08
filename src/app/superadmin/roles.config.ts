@@ -1,5 +1,5 @@
-import { Crown, Calendar, CalendarCheck, ClipboardList, Users } from "lucide-react"
-import { Roles } from "./roles.type"
+import {Calendar, CalendarCheck, ClipboardList, Crown} from "lucide-react"
+import {Roles} from "./roles.type"
 
 export interface RolesConfig {
   role: Roles

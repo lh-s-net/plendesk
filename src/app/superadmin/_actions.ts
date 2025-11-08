@@ -6,7 +6,7 @@ import { Roles } from "./roles.type"
 
 export async function setRole(formData: FormData): Promise<void> {
   // Check that the user trying to set the role is a superadmin
-  if (!(await checkRole('superadmin'))) {
+  if (!(await checkRole('pd_superadmin'))) {
     throw new Error('Not Authorized')
   }
 
@@ -35,7 +35,7 @@ export async function setRole(formData: FormData): Promise<void> {
 
 export async function removeRole(formData: FormData): Promise<void> {
   // Check that the user trying to remove the role is a superadmin
-  if (!(await checkRole('superadmin'))) {
+  if (!(await checkRole('pd_superadmin'))) {
     throw new Error('Not Authorized')
   }
 
@@ -48,7 +48,7 @@ export async function removeRole(formData: FormData): Promise<void> {
     const currentRoles = (user.publicMetadata.roles as string[]) || ['user']
     
     // Remove all special roles, keep only 'user' or default to ['user']
-    const validRoles: Roles[] = ['superadmin', 'member', 'pd_planner', 'pd_cal', 'pd_mypd']
+    const validRoles: Roles[] = ['pd_superadmin', 'pd_planner', 'pd_cal', 'pd_mypd']
     const updatedRoles = currentRoles.filter(role => !validRoles.includes(role as Roles))
     const finalRoles = updatedRoles.length > 0 ? updatedRoles : ['user']
     
@@ -63,7 +63,7 @@ export async function removeRole(formData: FormData): Promise<void> {
 
 export async function toggleRole(formData: FormData): Promise<void> {
   // Check that the user trying to toggle the role is a superadmin
-  if (!(await checkRole('superadmin'))) {
+  if (!(await checkRole('pd_superadmin'))) {
     throw new Error('Not Authorized')
   }
 
@@ -71,7 +71,7 @@ export async function toggleRole(formData: FormData): Promise<void> {
     const userId = formData.get('id') as string
     const roleToToggle = formData.get('role') as string
     
-    const validRoles: Roles[] = ['superadmin', 'member', 'pd_planner', 'pd_cal', 'pd_mypd']
+    const validRoles: Roles[] = ['pd_superadmin', 'pd_planner', 'pd_cal', 'pd_mypd']
     if (!validRoles.includes(roleToToggle as Roles)) {
       throw new Error('Invalid role')
     }
@@ -104,7 +104,7 @@ export async function toggleRole(formData: FormData): Promise<void> {
 
 export async function deleteUser(formData: FormData): Promise<void> {
   // Check that the user trying to delete is a superadmin
-  if (!(await checkRole('superadmin'))) {
+  if (!(await checkRole('pd_superadmin'))) {
     throw new Error('Not Authorized')
   }
 

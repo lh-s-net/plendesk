@@ -15,7 +15,7 @@ import { checkRole } from "./roles"
 export default async function SuperAdminDashboard(params: {
   searchParams: Promise<{ search?: string; page?: string; sort?: string; order?: string; pageSize?: string }>
 }) {
-  if (!(await checkRole('superadmin'))) {
+  if (!(await checkRole('pd_superadmin'))) {
     redirect('/')
   }
 
