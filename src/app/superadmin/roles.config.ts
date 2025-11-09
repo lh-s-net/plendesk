@@ -16,7 +16,7 @@ export interface RolesConfig {
 export const roleConfigs: RolesConfig[] = [
   {
     role: 'pd_superadmin',
-    label: 'pd_superadmin',
+    label: 'superadmin',
     icon: Crown,
     activeColor: 'bg-red-600 hover:bg-red-700 text-white border-red-600 shadow-md hover:shadow-lg',
     hoverColor: 'text-white',
@@ -25,7 +25,7 @@ export const roleConfigs: RolesConfig[] = [
   },
   {
     role: 'pd_planner',
-    label: 'pd_planner',
+    label: 'planner',
     icon: ClipboardList,
     activeColor: 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600 shadow-md hover:shadow-lg',
     hoverColor: 'text-white',
@@ -33,7 +33,7 @@ export const roleConfigs: RolesConfig[] = [
   },
   {
     role: 'pd_cal',
-    label: 'pd_cal',
+    label: 'cal',
     icon: Calendar,
     activeColor: 'bg-green-600 hover:bg-green-700 text-white border-green-600 shadow-md hover:shadow-lg',
     hoverColor: 'text-white',
@@ -41,7 +41,7 @@ export const roleConfigs: RolesConfig[] = [
   },
   {
     role: 'pd_mypd',
-    label: 'pd_mypd',
+    label: 'mypd',
     icon: CalendarCheck,
     activeColor: 'bg-purple-600 hover:bg-purple-700 text-white border-purple-600 shadow-md hover:shadow-lg',
     hoverColor: 'text-white',

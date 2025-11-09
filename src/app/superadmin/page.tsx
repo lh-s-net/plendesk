@@ -86,7 +86,7 @@ export default async function SuperAdminDashboard(params: {
 
       <Separator />
 
-      {/* Users Data Table */}
+      {/* Users Data Table header */}
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-2xl font-bold tracking-tight">Users</h2>
