@@ -9,6 +9,7 @@ import {SpeedInsights} from '@vercel/speed-insights/next';
 import {cn} from "@/lib/utils";
 import MainLayout from "@/app/components/layout-main/main-layout";
 import { shadcn } from "@clerk/themes";
+import { ConvexClientProvider } from "@/components/convex-client-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,29 +48,31 @@ export default function RootLayout({children,}: Readonly<{ children: React.React
         baseTheme: shadcn,
       }}
     >
-      <html lang="en" suppressHydrationWarning>
-        <head>
-          <link rel="manifest" href="/manifest.json"/>
-          <link rel="icon" href="/icons/icon-192x192.png"/>
-          <meta name="theme-color" content="#ffffff"/>
-        </head>
-        <body
-          className={cn("min-h-screen bg-gray-100 font-sans antialiased dark:bg-neutral-900", geistSans.variable, geistMono.variable)}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system" // dark ord system
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Toaster/>
-            <MainLayout>
-              {children}
-            </MainLayout>
-            <Analytics/>
-            <SpeedInsights/>
-          </ThemeProvider>
-        </body>
-      </html>
+      <ConvexClientProvider>
+        <html lang="en" suppressHydrationWarning>
+          <head>
+            <link rel="manifest" href="/manifest.json"/>
+            <link rel="icon" href="/icons/icon-192x192.png"/>
+            <meta name="theme-color" content="#ffffff"/>
+          </head>
+          <body
+            className={cn("min-h-screen bg-gray-100 font-sans antialiased dark:bg-neutral-900", geistSans.variable, geistMono.variable)}>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system" // dark ord system
+              enableSystem
+              disableTransitionOnChange
+            >
+              <Toaster/>
+              <MainLayout>
+                {children}
+              </MainLayout>
+              <Analytics/>
+              <SpeedInsights/>
+            </ThemeProvider>
+          </body>
+        </html>
+      </ConvexClientProvider>
     </ClerkProvider>
   );
 }
