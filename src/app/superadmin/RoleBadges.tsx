@@ -3,7 +3,7 @@
 import { useState, useTransition } from 'react'
 import { Badge } from "@/components/ui/badge"
 import { toggleRole } from './_actions'
-import { roleConfigs } from "./roles.config"
+import { roleConfigs, getActiveColorClasses, getInactiveColorClasses } from "./roles.config"
 
 interface RoleBadgesProps {
   userId: string
@@ -59,12 +59,12 @@ export function RoleBadges({ userId, userRoles: initialRoles }: RoleBadgesProps)
             <Badge 
               key={config.role}
               className={`flex items-center gap-1 cursor-default ${
-                isActive ? config.activeColor.replace(/hover:bg-\S+/g, '').replace(/hover:shadow-lg/g, '') : config.inactiveColor.replace(/hover:bg-\S+/g, '').replace(/hover:text-\S+/g, '').replace(/hover:border-\S+/g, '')
+                isActive ? getActiveColorClasses(config.activeColor) : getInactiveColorClasses()
               }`}
-              title={`${config.label} role (managed via Clerk Portal only)`}
+              title={`${config.role} role (managed via Clerk Portal only)`}
             >
               <Icon className={`h-3 w-3 ${isActive ? 'text-white' : 'text-gray-400'}`} />
-              {config.label}
+              {config.role}
             </Badge>
           )
         }
@@ -76,15 +76,15 @@ export function RoleBadges({ userId, userRoles: initialRoles }: RoleBadgesProps)
             onClick={() => handleRoleToggle(config.role)}
             disabled={isPending}
             className="transition-all duration-200 hover:scale-105 active:scale-95 disabled:opacity-50"
-            title={isActive ? `Remove ${config.label} role` : `Add ${config.label} role`}
+            title={isActive ? `Remove ${config.role} role` : `Add ${config.role} role`}
           >
             <Badge 
               className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${
-                isActive ? config.activeColor : config.inactiveColor
+                isActive ? getActiveColorClasses(config.activeColor) : getInactiveColorClasses()
               }`}
             >
               <Icon className={`h-3 w-3 ${isActive ? 'text-white' : 'text-gray-400'}`} />
-              {config.label}
+              {config.role}
             </Badge>
           </button>
         )
