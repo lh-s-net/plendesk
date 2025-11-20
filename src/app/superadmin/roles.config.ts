@@ -4,13 +4,8 @@ import {Roles} from "./roles.type"
 export interface RolesConfig {
   role: Roles
   icon: typeof Crown
-  activeColor: string // Simple color name like 'red', 'blue', 'green', 'purple'
+  activeColor: string // Full Tailwind CSS classes for active state
   isEditable?: boolean // false for roles that can only be edited via Clerk Portal
-}
-
-// Helper function to generate active color classes from a simple color name
-export function getActiveColorClasses(color: string): string {
-  return `bg-${color}-600 hover:bg-${color}-700 text-white border-${color}-600 shadow-md hover:shadow-lg`
 }
 
 // Helper function to generate inactive color classes (always the same)
@@ -24,25 +19,25 @@ export const roleConfigs: RolesConfig[] = [
   {
     role: 'pd_superadmin',
     icon: Crown,
-    activeColor: 'red',
+    activeColor: 'bg-red-600 hover:bg-red-700 text-white border-red-600 shadow-md hover:shadow-lg',
     isEditable: false // Can only be edited via Clerk Portal for security reasons
   },
   {
     role: 'pd_planner',
     icon: ClipboardList,
-    activeColor: 'blue',
+    activeColor: 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600 shadow-md hover:shadow-lg',
     isEditable: true
   },
   {
     role: 'pd_cal',
     icon: Calendar,
-    activeColor: 'green',
+    activeColor: 'bg-green-600 hover:bg-green-700 text-white border-green-600 shadow-md hover:shadow-lg',
     isEditable: true
   },
   {
     role: 'pd_mypd',
     icon: CalendarCheck,
-    activeColor: 'purple',
+    activeColor: 'bg-yellow-600 hover:bg-yellow-700 text-white border-yellow-600 shadow-md hover:shadow-lg',
     isEditable: true
   }
 ]

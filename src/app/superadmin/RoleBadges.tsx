@@ -3,7 +3,7 @@
 import { useState, useTransition } from 'react'
 import { Badge } from "@/components/ui/badge"
 import { toggleRole } from './_actions'
-import { roleConfigs, getActiveColorClasses, getInactiveColorClasses } from "./roles.config"
+import { roleConfigs, getInactiveColorClasses } from "./roles.config"
 
 interface RoleBadgesProps {
   userId: string
@@ -59,7 +59,7 @@ export function RoleBadges({ userId, userRoles: initialRoles }: RoleBadgesProps)
             <Badge 
               key={config.role}
               className={`flex items-center gap-1 cursor-default ${
-                isActive ? getActiveColorClasses(config.activeColor) : getInactiveColorClasses()
+                isActive ? config.activeColor : getInactiveColorClasses()
               }`}
               title={`${config.role} role (managed via Clerk Portal only)`}
             >
@@ -80,7 +80,7 @@ export function RoleBadges({ userId, userRoles: initialRoles }: RoleBadgesProps)
           >
             <Badge 
               className={`flex items-center gap-1 cursor-pointer transition-all duration-200 ${
-                isActive ? getActiveColorClasses(config.activeColor) : getInactiveColorClasses()
+                isActive ? config.activeColor : getInactiveColorClasses()
               }`}
             >
               <Icon className={`h-3 w-3 ${isActive ? 'text-white' : 'text-gray-400'}`} />
