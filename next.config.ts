@@ -27,11 +27,11 @@ module.exports = withPWA({
       // Rewrites für pd_mypd
       {
         source: '/mypd',
-        destination: `${process.env.NEXT_PUBLIC_URL_PD_PLANNER}/mypd`,
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_MYPD}/mypd`,
       },
       {
         source: '/mypd/:path*',
-        destination: `${process.env.NEXT_PUBLIC_URL_PD_PLANNER}/mypd/:path*`,
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_MYPD}/mypd/:path*`,
       },
     ];
   },
