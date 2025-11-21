@@ -47,7 +47,7 @@ export function NavMainMobile() {
                   {/*item platform overview*/}
                   <SheetClose asChild>
                     <Link
-                      href="/dashboard"
+                      href="/platform"
                       className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                     >
                       Platform Overview
@@ -67,7 +67,7 @@ export function NavMainMobile() {
                   {/*item app3*/}
                   <SheetClose asChild>
                     <Link
-                      href="/dashboard/app2"
+                      href="/src/app/platform/planner"
                       className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                     >
                       App2
@@ -77,7 +77,7 @@ export function NavMainMobile() {
                   {/*item app3*/}
                   <SheetClose asChild>
                     <Link
-                      href="/dashboard/app3"
+                      href="/src/app/platform/app3"
                       className="block rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-accent hover:text-accent-foreground"
                     >
                       App3

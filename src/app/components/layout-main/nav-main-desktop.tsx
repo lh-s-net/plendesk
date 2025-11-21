@@ -11,10 +11,10 @@ import React from "react";
 import {NavAppDesktop} from "@/app/components/layout-app/nav-app-desktop";
 import Link from "next/link";
 
-const dashboardItems = [
+const platformItems = [
   {title: "Calc", href: "/calc", description: "Calc"},
   {title: "Planner", href: "/planner", description: "PD Planner (ToDo-Kanban-Lists-Calendar)"},
-  {title: "App3", href: "/dashboard/app3", description: "App3 vom Dashboard"},
+  {title: "App3", href: "/platform/app3", description: "App3 vom Platform"},
 ]
 
 
@@ -33,7 +33,7 @@ export function NavMainDesktop() {
                   <NavigationMenuLink asChild>
                     <Link
                       className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                      href="/dashboard"
+                      href="/platform"
                     >
                       <div className="mb-2 mt-4 text-lg font-medium">Platform</div>
                       <p className="text-sm leading-tight text-muted-foreground">Main application overview with all
@@ -41,7 +41,7 @@ export function NavMainDesktop() {
                     </Link>
                   </NavigationMenuLink>
                 </li>
-                {dashboardItems.map((item) => (
+                {platformItems.map((item) => (
                   <ListItem key={item.title} href={item.href} title={item.title}>
                     {item.description}
                   </ListItem>

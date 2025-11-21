@@ -48,7 +48,7 @@ export async function removeRole(formData: FormData): Promise<void> {
     const currentRoles = (user.publicMetadata.roles as string[]) || ['user']
     
     // Remove all special roles, keep only 'user' or default to ['user']
-    const validRoles: Roles[] = ['pd_superadmin', 'pd_planner', 'pd_cal', 'pd_mypd']
+    const validRoles: Roles[] = ['pd_superadmin', 'pd_planner', 'pd_calc', 'pd_mypd']
     const updatedRoles = currentRoles.filter(role => !validRoles.includes(role as Roles))
     const finalRoles = updatedRoles.length > 0 ? updatedRoles : ['user']
     
@@ -71,7 +71,7 @@ export async function toggleRole(formData: FormData): Promise<void> {
     const userId = formData.get('id') as string
     const roleToToggle = formData.get('role') as string
     
-    const validRoles: Roles[] = ['pd_superadmin', 'pd_planner', 'pd_cal', 'pd_mypd']
+    const validRoles: Roles[] = ['pd_superadmin', 'pd_planner', 'pd_calc', 'pd_mypd']
     if (!validRoles.includes(roleToToggle as Roles)) {
       throw new Error('Invalid role')
     }

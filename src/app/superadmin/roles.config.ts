@@ -29,7 +29,7 @@ export const roleConfigs: RolesConfig[] = [
     isEditable: true
   },
   {
-    role: 'pd_cal',
+    role: 'pd_calc',
     icon: Calendar,
     activeColor: 'bg-green-600 hover:bg-green-700 text-white border-green-600 shadow-md hover:shadow-lg',
     isEditable: true
