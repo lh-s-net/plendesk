@@ -1,6 +1,6 @@
-import { fetchQuery } from "convex/nextjs";
-import { api } from "@/convex/_generated/api";
-import { AppCarousel } from "@/app/components/app-carousel";
+import {fetchQuery} from "convex/nextjs";
+import {api} from "@/convex/_generated/api";
+import {AppGrideLayout} from "@/app/components/app-gride_layout";
 
 export default async function Home() {
   // Server-side data fetching with Convex
@@ -18,7 +18,7 @@ export default async function Home() {
       </div>
 
       <div className="flex justify-center items-center px-12">
-        <AppCarousel apps={apps} />
+        <AppGrideLayout apps={apps}/>
       </div>
     </div>
   );
