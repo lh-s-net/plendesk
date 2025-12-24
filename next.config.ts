@@ -33,6 +33,15 @@ module.exports = withPWA({
         source: '/mypd/:path*',
         destination: `${process.env.NEXT_PUBLIC_URL_PD_MYPD}/mypd/:path*`,
       },
+      // Rewrites für pd_task
+      {
+        source: '/task',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_TASK}/task`,
+      },
+      {
+        source: '/task/:path*',
+        destination: `${process.env.NEXT_PUBLIC_URL_PD_TASK}/task/:path*`,
+      },
     ];
   },
 });
